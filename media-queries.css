@@ -1,0 +1,87 @@
+
+/* ---------- Mobile: up to 480px ---------- */
+@media (max-width: 480px) {
+  :root { --base-font-size: 16px; }
+
+  body {
+    font-size: var(--base-font-size);
+  }
+
+  #lyrics {
+    font-size: 16px; /* smaller text for mobile */
+    margin-top: 14px;
+  }
+
+
+  /* Profile */
+  #profile {
+    padding: 6px 6px;
+    gap: 6px;
+  }
+  #profile img { width: 36px; height: 36px; }
+  #profile span { font-size: 13px; }
+
+
+  #soundControl{
+    padding: 5px 15px;
+    padding-bottom: 7px;
+    font-size: 20px;
+  }
+  #volumeControl{
+    margin-top: 15px;
+  }
+
+
+
+  /* Reduce text-shadow for readability on small screens */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Small tablets / large phones: 481-768px ---------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  :root { --base-font-size: 18px; }
+
+  #lyrics { font-size: 18px; max-width: 720px; }
+
+  #profile span { font-size: 14px; }
+}
+
+/* ---------- Tablet / small laptop: 769-1024px ---------- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root { --base-font-size: 20px; }
+
+  #lyrics { font-size: 20px; max-width: 880px; margin-top: 18px; }
+
+  /* Slightly bigger The End text on wider screens */
+  #theEnd { font-size: 40px; letter-spacing: 2px; }
+}
+
+/* ---------- Desktop: 1025px and up ---------- */
+@media (min-width: 1025px) {
+  
+}
+
+/* Accessibility: prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+}
+
+/* Tiny helper: center lyrics nicely on very wide screens */
+@media (min-width: 1400px) {
+  #lyrics { max-width: 1200px; font-size: 24px; }
+}
