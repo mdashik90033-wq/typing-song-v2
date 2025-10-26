@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS:wght@100..400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/media-queries.css">
+
   <style>
     body {
       margin: 0;
@@ -244,6 +245,57 @@
         fill: white;
       }
     }
+
+  /* 🌟 "The End" fade animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+}
+
+#theEnd {
+  animation: fadeInOut 4s ease-in-out forwards;
+  font-size: 36px;
+  color: #fff;
+  text-shadow: 2px 2px 10px #ff00ff;
+  letter-spacing: 2px;
+}
+
+/* 💫 PLAY ME pop-up animation */
+#startBtn.show {
+  display: inline-flex !important;
+  animation: popUp 8s ease forwards;
+}
+
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
   </style>
 </head>
 
@@ -369,19 +421,31 @@
 
     async function printLyrics() {
       startBtn.style.display = "none";
+      container.innerHTML = "";
+      music.currentTime = 0;
       await music.play();
+
       container.innerHTML = "Arz kya hai?........\n\n";
       await new Promise(r => setTimeout(r, 1400));
 
       for (let i = 0; i < lyrics.length; i++) {
         await typeText(lyrics[i], delays[i]);
       }
+
+      // 🌟 Smooth "The End..." Animation
+      container.innerHTML += `<div id="theEnd">✨ The End... ✨</div>`;
+
+      // Wait 3 seconds (same as animation duration)
+      await new Promise(r => setTimeout(r, 5000));
+
+      // Clear text & show Play button again
+      container.innerHTML = "";
+      startBtn.style.display = "inline-flex";
     }
 
     startBtn.addEventListener("click", printLyrics);
   </script>
 
 </body>
-
 
 </html>
